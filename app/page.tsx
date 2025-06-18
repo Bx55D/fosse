@@ -7,15 +7,15 @@ import { PricingSection } from "@/components/pricing-section"
 import { ContactSection } from "@/components/contact-section"
 
 export default function Home() {
-  return (
-    <div className="flex flex-col min-h-screen">
-      <HeroSection />
-      <ServicesSection />
-      <WorkSection />
-      <AboutSection />
-      <TestimonialsSection />
-      <PricingSection />
-      <ContactSection />
-    </div>
-  )
+	return (
+		<div className="flex flex-col min-h-screen">
+			<HeroSection />
+			<ServicesSection />
+			{/*<WorkSection />*/}
+			<AboutSection />
+			{/*<TestimonialsSection />*/}
+			<PricingSection />
+			<ContactSection />
+		</div>
+	)
 }

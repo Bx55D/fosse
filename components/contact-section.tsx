@@ -7,7 +7,7 @@ import { zodResolver } from "@hookform/resolvers/zod"
 import { z } from "zod"
 
 import { motion } from "framer-motion"
-import { ArrowRight, Mail, MapPin, MessageSquare, Phone, Loader2 } from "lucide-react"
+import { ArrowRight, Mail, MapPin, MessageSquare, Phone, Loader2, CheckCircle } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
@@ -27,6 +27,7 @@ type ContactFormData = z.infer<typeof contactFormSchema>
 export function ContactSection() {
 	const { toast } = useToast()
 	const [isSubmitting, setIsSubmitting] = useState(false)
+	const [isMessageSent, setIsMessageSent] = useState(false)
 
 	const {
 		register,
@@ -59,6 +60,7 @@ export function ContactSection() {
 				description: "We'll get back to you as soon as possible.",
 			})
 
+			setIsMessageSent(true)
 			reset()
 		} catch (error) {
 			console.error('Form submission error:', error)
@@ -105,7 +107,31 @@ export function ContactSection() {
 					>
 						<Card>
 							<CardContent className="p-6">
-								<form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
+								{isMessageSent ? (
+									<motion.div
+										initial={{ opacity: 0, scale: 0.8 }}
+										animate={{ opacity: 1, scale: 1 }}
+										transition={{ duration: 0.5 }}
+										className="text-center space-y-6 py-8"
+									>
+										<div className="w-16 h-16 mx-auto bg-green-100 rounded-full flex items-center justify-center">
+											<CheckCircle className="h-8 w-8 text-green-600" />
+										</div>
+										<div>
+											<h3 className="font-semibold text-xl mb-2">Message sent successfully!</h3>
+											<p className="text-muted-foreground">
+												Thank you for reaching out. We'll get back to you as soon as possible, usually within 24 hours.
+											</p>
+										</div>
+										<Button
+											variant="outline"
+											onClick={() => setIsMessageSent(false)}
+										>
+											Send another message
+										</Button>
+									</motion.div>
+								) : (
+									<form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
 									<div className="grid grid-cols-1 md:grid-cols-2 gap-6">
 										<div className="space-y-2">
 											<Label htmlFor="name">Name</Label>
@@ -175,6 +201,7 @@ export function ContactSection() {
 										)}
 									</Button>
 								</form>
+							)}
 							</CardContent>
 						</Card>
 					</motion.div>
