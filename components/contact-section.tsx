@@ -221,8 +221,8 @@ export function ContactSection() {
 									<div className="min-w-0 flex-1">
 										<h3 className="font-medium text-base min-[340px]:text-lg mb-1">Email Us</h3>
 										<p className="text-muted-foreground mb-2 text-sm min-[340px]:text-base">We'll respond within 24 hours</p>
-										<a href="mailto:hello@fossecreative.com" className="text-primary hover:underline text-sm min-[340px]:text-base break-all">
-											hello@fossecreative.com
+										<a href="mailto:hello@fossecreative.co.uk" className="text-primary hover:underline text-sm min-[340px]:text-base break-all">
+											hello@fossecreative.co.uk
 										</a>
 									</div>
 								</CardContent>
