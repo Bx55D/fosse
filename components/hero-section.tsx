@@ -2,8 +2,42 @@
 
 import { Button } from "@/components/ui/button"
 import { motion } from "framer-motion"
-import { ArrowRight, Code, Compass, Layers, Navigation, Zap } from "lucide-react"
+import { ArrowRight, MapPin, Route, Signpost, Navigation, Map } from "lucide-react"
 import { useState, useEffect, useRef } from "react"
+
+const AnimatedDashedHeart = () => {
+	const [pathLength, setPathLength] = useState(0);
+	const pathRef = useRef(null);
+
+	useEffect(() => {
+		if (pathRef.current) {
+			// Get the total length of the path
+			const length = pathRef.current.getTotalLength();
+			setPathLength(length);
+		}
+	}, []);
+
+	return (
+		<svg width="800" height="600" viewBox="0 0 800 600" className="w-full h-full">
+			<motion.path
+				ref={pathRef}
+				d="M400,150 C400,100 350,50 280,50 C210,50 160,100 160,170 C160,240 280,360 400,480 C520,360 640,240 640,170 C640,100 590,50 520,50 C450,50 400,100 400,150z"
+				fill="none"
+				stroke="hsl(var(--primary))"
+				strokeWidth="8"
+				strokeLinecap="round"
+				strokeOpacity="0.7"
+				// Set the dash pattern you want
+				strokeDasharray="15 10"
+				// Initial state: the dash offset is the full path length
+				initial={{ strokeDashoffset: pathLength }}
+				// Animate the dash offset to 0 to "draw" the path
+				animate={{ strokeDashoffset: 0 }}
+				transition={{ duration: 3, delay: 0.5, ease: "easeInOut" }}
+			/>
+		</svg>
+	);
+};
 
 export function HeroSection() {
 	const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
@@ -235,94 +269,57 @@ export function HeroSection() {
 						className="flex flex-col gap-6"
 					>
 						<h1 className="text-4xl md:text-5xl lg:text-5xl font-bold leading-tight">
-							<strong>You've Got The <span className="text-primary relative">
-								Wheel
-							</span></strong><br /> We've Got The <span className="text-primary relative">
-								Map
-								<motion.div
-									className="absolute -bottom-1 left-0 h-1 bg-secondary rounded-full"
-									initial={{ width: 0 }}
-									animate={{ width: "100%" }}
-									transition={{ duration: 0.8, delay: 1.2 }}
-								/>
-							</span>
+							<strong>Do What You Love</strong><br />
+							We've Got The Rest
 						</h1>
 
 						<p className="text-lg text-muted-foreground max-w-lg">
 							Do what you do best. We'll take care of everything else.
 						</p>
 
-						<div className="flex flex-col sm:flex-row gap-4 mt-4">
-							<Button size="lg" className="group">
-								Get Started
-								<ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-							</Button>
-							<Button size="lg" variant="outline">
-								View Our Work
-							</Button>
-						</div>
 					</motion.div>
 
 					<motion.div
 						initial={{ opacity: 0, scale: 0.9 }}
 						animate={{ opacity: 1, scale: 1 }}
 						transition={{ duration: 0.5, delay: 0.2 }}
-						className="relative"
+						className="relative w-full h-[500px] flex items-center justify-center"
 					>
-						<div className="relative aspect-square md:aspect-[4/3] w-full max-w-lg mx-auto">
-							{/* Central hub with radiating connections */}
-							<div className="absolute inset-0 flex items-center justify-center">
-								<div className="relative w-24 h-24 bg-primary rounded-full flex items-center justify-center shadow-xl">
+						{/* Heart-shaped trail with centered compass */}
+						<div className="relative">
+							<AnimatedDashedHeart />
+							{/* Central compass - positioned at the geometric center of the heart */}
+							<div className="absolute z-10" style={{ left: '50%', top: '44%', transform: 'translate(-50%, -50%)' }}>
+								<div className="relative w-32 h-32 bg-primary rounded-full flex items-center justify-center shadow-xl border-4 border-primary-foreground/20">
+									{/* Compass ring with cardinal directions */}
+									<div className="absolute inset-3 rounded-full border-2 border-primary-foreground/10">
+										{/* Cardinal direction markers */}
+										<div className="absolute -top-1 left-1/2 transform -translate-x-1/2 w-0.5 h-4 bg-primary-foreground/40"></div>
+										<div className="absolute -bottom-1 left-1/2 transform -translate-x-1/2 w-0.5 h-4 bg-primary-foreground/40"></div>
+										<div className="absolute top-1/2 -left-1 transform -translate-y-1/2 w-4 h-0.5 bg-primary-foreground/40"></div>
+										<div className="absolute top-1/2 -right-1 transform -translate-y-1/2 w-4 h-0.5 bg-primary-foreground/40"></div>
+
+										{/* N marker */}
+										<div className="absolute -top-8 left-1/2 transform -translate-x-1/2 text-sm font-bold text-primary-foreground/70">N</div>
+									</div>
+
+									{/* Compass needle */}
 									<div
 										ref={compassRef}
-										className="transition-transform duration-100 ease-out"
+										className="transition-transform duration-100 ease-out relative"
 									>
-										<Navigation className="h-8 w-8 text-primary-foreground" />
+										{/* Compass needle - red north, white south */}
+										<div className="relative w-16 h-16 flex items-center justify-center">
+											{/* North needle (red) */}
+											<div className="absolute w-0 h-0 border-l-[8px] border-r-[8px] border-b-[20px] border-l-transparent border-r-transparent border-b-red-500 transform -translate-y-3"></div>
+											{/* South needle (white) */}
+											<div className="absolute w-0 h-0 border-l-[8px] border-r-[8px] border-t-[20px] border-l-transparent border-r-transparent border-t-primary-foreground transform translate-y-3"></div>
+											{/* Center pivot */}
+											<div className="absolute w-4 h-4 bg-primary-foreground rounded-full border border-primary-foreground/20"></div>
+										</div>
 									</div>
 								</div>
 							</div>
-
-							{/* Floating cards positioned around the circle */}
-							<motion.div
-								className="absolute top-8 left-8 bg-card border shadow-lg p-4 rounded-xl w-28 h-24 flex flex-col items-center justify-center"
-								initial={{ opacity: 0, y: 20 }}
-								animate={{ opacity: 1, y: 0 }}
-								transition={{ duration: 0.6, delay: 0.8 }}
-							>
-								<Code className="h-6 w-6 text-primary mb-2" />
-								<h3 className="font-medium text-xs text-center">Bespoke</h3>
-							</motion.div>
-
-							<motion.div
-								className="absolute top-8 right-8 bg-card border shadow-lg p-4 rounded-xl w-28 h-24 flex flex-col items-center justify-center"
-								initial={{ opacity: 0, y: 20 }}
-								animate={{ opacity: 1, y: 0 }}
-								transition={{ duration: 0.6, delay: 1.0 }}
-							>
-								<Zap className="h-6 w-6 text-secondary mb-2" />
-								<h3 className="font-medium text-xs text-center">Fast</h3>
-							</motion.div>
-
-							<motion.div
-								className="absolute bottom-8 left-8 bg-card border shadow-lg p-4 rounded-xl w-24 h-20 flex flex-col items-center justify-center"
-								initial={{ opacity: 0, y: 20 }}
-								animate={{ opacity: 1, y: 0 }}
-								transition={{ duration: 0.6, delay: 1.2 }}
-							>
-								<Layers className="h-6 w-6 text-accent mb-2" />
-								<h3 className="font-medium text-xs text-center">Comprehensive</h3>
-							</motion.div>
-
-							<motion.div
-								className="absolute bottom-8 right-8 bg-card border shadow-lg p-4 rounded-xl w-24 h-20 flex flex-col items-center justify-center"
-								initial={{ opacity: 0, y: 20 }}
-								animate={{ opacity: 1, y: 0 }}
-								transition={{ duration: 0.6, delay: 1.4 }}
-							>
-								<Compass className="h-6 w-6 text-primary mb-2" />
-								<h3 className="font-medium text-xs text-center">Expert</h3>
-							</motion.div>
-
 						</div>
 					</motion.div>
 				</div>
