@@ -69,7 +69,7 @@ export function AboutSection() {
 							</div>
 
 							<div className="flex items-start gap-3">
-								<div className="p-2 rounded-lg bg-secondary/10 text-secondary">
+								<div className="p-2 rounded-lg bg-primary/10 text-primary">
 									<Map className="h-5 w-5" />
 								</div>
 								<div>

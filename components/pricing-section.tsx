@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { motion } from "framer-motion"
 import { Check, ArrowRight, Star } from "lucide-react"
+import Link from "next/link"
 
 export function PricingSection() {
 	return (
@@ -87,10 +88,12 @@ export function PricingSection() {
 										<span>Analytics & reporting</span>
 									</div>
 								</div>
-								<Button className="w-full group" size="lg">
-									Get Started Today
-									<ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-								</Button>
+								<Link href="/#contact">
+									<Button className="w-full group" size="lg">
+										Get Started Today
+										<ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+									</Button>
+								</Link>
 								<p className="text-xs text-muted-foreground text-center">
 									Cancel anytime. Only pay while your website is active.
 								</p>
@@ -151,10 +154,12 @@ export function PricingSection() {
 										<span>Enterprise-level support</span>
 									</div>
 								</div>
-								<Button variant="outline" className="w-full group" size="lg">
-									Request Custom Quote
-									<ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-								</Button>
+								<Link href="/#contact">
+									<Button variant="outline" className="w-full group" size="lg">
+										Request Custom Quote
+										<ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+									</Button>
+								</Link>
 								<p className="text-xs text-muted-foreground text-center">
 									Speak to our team about your specific requirements.
 								</p>

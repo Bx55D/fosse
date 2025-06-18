@@ -229,7 +229,7 @@ export function ContactSection() {
 							</Card>
 							<Card>
 								<CardContent className="p-4 min-[340px]:p-6 flex items-start gap-3 min-[340px]:gap-4">
-									<div className="p-2 min-[340px]:p-3 rounded-lg bg-secondary/10 text-secondary flex-shrink-0">
+									<div className="p-2 min-[340px]:p-3 rounded-lg bg-primary/10 text-primary flex-shrink-0">
 										<Phone className="h-5 w-5 min-[340px]:h-6 min-[340px]:w-6" />
 									</div>
 									<div className="min-w-0 flex-1">

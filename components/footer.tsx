@@ -77,7 +77,8 @@ export function Footer() {
 						<p className="text-muted-foreground">
 							Creating digital experiences that drive results, inspired by the historic Fosse Way.
 						</p>
-						{/*<div className="flex gap-4">
+					</div>
+					{/*<div className="flex gap-4">
               <Button variant="ghost" size="icon" asChild>
                 <Link href="#" aria-label="Facebook">
                   <Facebook className="h-5 w-5" />
@@ -99,9 +100,10 @@ export function Footer() {
                 </Link>
               </Button>
             </div>*/}
-					</div>
+					<div className="space-y-4"></div>
+					<div className="space-y-4"></div>
 
-					<div>
+					{/*<div>
 						<h3 className="font-medium text-lg mb-4">Quick Links</h3>
 						<ul className="space-y-2">
 							<li>
@@ -130,9 +132,9 @@ export function Footer() {
 								</Link>
 							</li>
 						</ul>
-					</div>
+					</div>*/}
 
-					<div>
+					{/*<div>
 						<h3 className="font-medium text-lg mb-4">Services</h3>
 						<ul className="space-y-2">
 							<li>
@@ -161,7 +163,7 @@ export function Footer() {
 								</Link>
 							</li>
 						</ul>
-					</div>
+					</div>*/}
 
 					<div>
 						<h3 className="font-medium text-lg mb-4">Newsletter</h3>
@@ -187,18 +189,18 @@ export function Footer() {
 							</div>
 						) : (
 							<form onSubmit={handleSubmit(onSubmit)} className="space-y-2">
-								<Input 
-									placeholder="Your email address" 
-									type="email" 
+								<Input
+									placeholder="Your email address"
+									type="email"
 									{...register("email")}
 									className={errors.email ? "border-destructive" : ""}
 								/>
 								{errors.email && (
 									<p className="text-xs text-destructive">{errors.email.message}</p>
 								)}
-								<Button 
-									type="submit" 
-									className="w-full" 
+								<Button
+									type="submit"
+									className="w-full"
 									disabled={isSubmitting}
 								>
 									{isSubmitting ? (
