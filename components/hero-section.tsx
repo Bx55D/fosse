@@ -89,7 +89,7 @@ export function HeroSection() {
 				let angle = Math.atan2(deltaY, deltaX) * (180 / Math.PI)
 
 				// Adjust angle so the arrow tip points at the mouse
-				angle += 45
+				angle += 90
 
 				// Calculate the shortest rotation path
 				let angleDiff = angle - targetAngleRef.current
@@ -282,7 +282,7 @@ export function HeroSection() {
 						</h1>
 
 						<p className="text-lg text-muted-foreground max-w-lg">
-							Do what you do best. We'll take care of everything else.
+							We build a comprehensive online presence for your business; getting you more customers, while giving you more time to do your thing.
 						</p>
 
 					</motion.div>

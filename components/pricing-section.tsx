@@ -7,7 +7,7 @@ import { Check, ArrowRight, Star } from "lucide-react"
 
 export function PricingSection() {
 	return (
-		<section className="py-20 md:py-32 bg-muted/50">
+		<section id="pricing" className="py-20 md:py-32 bg-muted/50">
 			<div className="container">
 				<motion.div
 					initial={{ opacity: 0, y: 20 }}
