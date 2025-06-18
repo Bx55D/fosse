@@ -57,7 +57,7 @@ export function AboutSection() {
 							We create digital experiences that stand the test of time, just like the road that inspired our name.
 						</p>
 
-						<div className="grid grid-cols-2 gap-6 mt-4">
+						<div className="grid grid-cols-1 min-[340px]:grid-cols-2 gap-6 mt-4">
 							<div className="flex items-start gap-3">
 								<div className="p-2 rounded-lg bg-primary/10 text-primary">
 									<Compass className="h-5 w-5" />

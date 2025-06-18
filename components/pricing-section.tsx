@@ -34,7 +34,7 @@ export function PricingSection() {
 					>
 						<Card className="relative h-full border-primary shadow-lg">
 							<div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-								<div className="bg-primary text-primary-foreground px-4 py-2 rounded-full text-sm font-medium flex items-center gap-2">
+								<div className="bg-primary text-primary-foreground px-4 py-2 rounded-full text-sm font-medium flex items-center gap-2 whitespace-nowrap">
 									<Star className="h-4 w-4" />
 									Most Popular
 								</div>

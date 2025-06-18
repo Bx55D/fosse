@@ -18,7 +18,7 @@ const AnimatedSolidHeart = () => {
 	}, []);
 
 	return (
-		<svg width="800" height="600" viewBox="0 0 800 600" className="w-full h-full">
+		<svg width="800" height="600" viewBox="0 0 800 600" className="w-full h-full min-w-[300px] min-h-[225px] max-w-none">
 			{pathLength > 0 && (
 				<motion.path
 					ref={pathRef}
@@ -118,7 +118,7 @@ export function HeroSection() {
 		}
 	}, [])
 	return (
-		<section className="relative pt-32 pb-20 md:pt-40 md:pb-32 overflow-hidden">
+		<section className="relative pt-32 pb-20 md:pt-40 md:pb-32 overflow-hidden min-h-screen lg:min-h-0">
 
 			{/* Floating geometric shapes */}
 			<div className="absolute inset-0 pointer-events-none z-0">
@@ -291,24 +291,24 @@ export function HeroSection() {
 						initial={{ opacity: 0, scale: 0.9 }}
 						animate={{ opacity: 1, scale: 1 }}
 						transition={{ duration: 0.5, delay: 0.2 }}
-						className="relative w-full h-[500px] flex items-center justify-center"
+						className="relative w-full h-[400px] sm:h-[450px] md:h-[500px] flex items-center justify-center hidden lg:flex"
 					>
 						{/* Heart-shaped trail with centered compass */}
-						<div className="relative">
+						<div className="relative w-[calc(100vw-2rem)] max-w-[300px] sm:max-w-[400px] md:max-w-[500px] lg:max-w-none aspect-[4/3]">
 							<AnimatedSolidHeart />
 							{/* Central compass - positioned at the geometric center of the heart */}
 							<div className="absolute z-10" style={{ left: '50%', top: '44%', transform: 'translate(-50%, -50%)' }}>
-								<div className="relative w-32 h-32 bg-primary rounded-full flex items-center justify-center shadow-xl border-4 border-primary-foreground/20">
+								<div className="relative w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 bg-primary rounded-full flex items-center justify-center shadow-xl border-2 sm:border-3 md:border-4 border-primary-foreground/20">
 									{/* Compass ring with cardinal directions */}
-									<div className="absolute inset-3 rounded-full border-2 border-primary-foreground/10">
+									<div className="absolute inset-2 sm:inset-2.5 md:inset-3 rounded-full border-2 border-primary-foreground/10">
 										{/* Cardinal direction markers */}
-										<div className="absolute -top-1 left-1/2 transform -translate-x-1/2 w-0.5 h-4 bg-primary-foreground/40"></div>
-										<div className="absolute -bottom-1 left-1/2 transform -translate-x-1/2 w-0.5 h-4 bg-primary-foreground/40"></div>
-										<div className="absolute top-1/2 -left-1 transform -translate-y-1/2 w-4 h-0.5 bg-primary-foreground/40"></div>
-										<div className="absolute top-1/2 -right-1 transform -translate-y-1/2 w-4 h-0.5 bg-primary-foreground/40"></div>
+										<div className="absolute -top-1 left-1/2 transform -translate-x-1/2 w-0.5 h-3 sm:h-3.5 md:h-4 bg-primary-foreground/40"></div>
+										<div className="absolute -bottom-1 left-1/2 transform -translate-x-1/2 w-0.5 h-3 sm:h-3.5 md:h-4 bg-primary-foreground/40"></div>
+										<div className="absolute top-1/2 -left-1 transform -translate-y-1/2 w-3 sm:w-3.5 md:w-4 h-0.5 bg-primary-foreground/40"></div>
+										<div className="absolute top-1/2 -right-1 transform -translate-y-1/2 w-3 sm:w-3.5 md:w-4 h-0.5 bg-primary-foreground/40"></div>
 
 										{/* N marker */}
-										<div className="absolute -top-8 left-1/2 transform -translate-x-1/2 text-sm font-bold text-primary-foreground/70">N</div>
+										<div className="absolute -top-6 sm:-top-7 md:-top-8 left-1/2 transform -translate-x-1/2 text-xs sm:text-sm font-bold text-primary-foreground/70">N</div>
 									</div>
 
 									{/* Compass needle */}
@@ -317,13 +317,13 @@ export function HeroSection() {
 										className="transition-transform duration-100 ease-out relative"
 									>
 										{/* Compass needle - red north, white south */}
-										<div className="relative w-16 h-16 flex items-center justify-center">
+										<div className="relative w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 flex items-center justify-center">
 											{/* North needle (red) */}
-											<div className="absolute w-0 h-0 border-l-[8px] border-r-[8px] border-b-[20px] border-l-transparent border-r-transparent border-b-red-500 transform -translate-y-3"></div>
+											<div className="absolute w-0 h-0 border-l-[6px] border-r-[6px] border-b-[16px] sm:border-l-[7px] sm:border-r-[7px] sm:border-b-[18px] md:border-l-[8px] md:border-r-[8px] md:border-b-[20px] border-l-transparent border-r-transparent border-b-red-500 transform -translate-y-2 sm:-translate-y-2.5 md:-translate-y-3"></div>
 											{/* South needle (white) */}
-											<div className="absolute w-0 h-0 border-l-[8px] border-r-[8px] border-t-[20px] border-l-transparent border-r-transparent border-t-primary-foreground transform translate-y-3"></div>
+											<div className="absolute w-0 h-0 border-l-[6px] border-r-[6px] border-t-[16px] sm:border-l-[7px] sm:border-r-[7px] sm:border-t-[18px] md:border-l-[8px] md:border-r-[8px] md:border-t-[20px] border-l-transparent border-r-transparent border-t-primary-foreground transform translate-y-2 sm:translate-y-2.5 md:translate-y-3"></div>
 											{/* Center pivot */}
-											<div className="absolute w-4 h-4 bg-primary-foreground rounded-full border border-primary-foreground/20"></div>
+											<div className="absolute w-3 h-3 sm:w-3.5 sm:h-3.5 md:w-4 md:h-4 bg-primary-foreground rounded-full border border-primary-foreground/20"></div>
 										</div>
 									</div>
 								</div>

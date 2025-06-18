@@ -214,28 +214,28 @@ export function ContactSection() {
 					>
 						<div className="space-y-6">
 							<Card>
-								<CardContent className="p-6 flex items-start gap-4">
-									<div className="p-3 rounded-lg bg-primary/10 text-primary">
-										<Mail className="h-6 w-6" />
+								<CardContent className="p-4 min-[340px]:p-6 flex items-start gap-3 min-[340px]:gap-4">
+									<div className="p-2 min-[340px]:p-3 rounded-lg bg-primary/10 text-primary flex-shrink-0">
+										<Mail className="h-5 w-5 min-[340px]:h-6 min-[340px]:w-6" />
 									</div>
-									<div>
-										<h3 className="font-medium text-lg mb-1">Email Us</h3>
-										<p className="text-muted-foreground mb-2">We'll respond within 24 hours</p>
-										<a href="mailto:hello@fossecreative.com" className="text-primary hover:underline">
+									<div className="min-w-0 flex-1">
+										<h3 className="font-medium text-base min-[340px]:text-lg mb-1">Email Us</h3>
+										<p className="text-muted-foreground mb-2 text-sm min-[340px]:text-base">We'll respond within 24 hours</p>
+										<a href="mailto:hello@fossecreative.com" className="text-primary hover:underline text-sm min-[340px]:text-base break-all">
 											hello@fossecreative.com
 										</a>
 									</div>
 								</CardContent>
 							</Card>
 							<Card>
-								<CardContent className="p-6 flex items-start gap-4">
-									<div className="p-3 rounded-lg bg-secondary/10 text-secondary">
-										<Phone className="h-6 w-6" />
+								<CardContent className="p-4 min-[340px]:p-6 flex items-start gap-3 min-[340px]:gap-4">
+									<div className="p-2 min-[340px]:p-3 rounded-lg bg-secondary/10 text-secondary flex-shrink-0">
+										<Phone className="h-5 w-5 min-[340px]:h-6 min-[340px]:w-6" />
 									</div>
-									<div>
-										<h3 className="font-medium text-lg mb-1">Call Us</h3>
-										<p className="text-muted-foreground mb-2">Mon-Sun from 9am to 5pm</p>
-										<a href="tel:+447555340022" className="text-primary hover:underline">
+									<div className="min-w-0 flex-1">
+										<h3 className="font-medium text-base min-[340px]:text-lg mb-1">Call Us</h3>
+										<p className="text-muted-foreground mb-2 text-sm min-[340px]:text-base">Mon-Sun from 9am to 5pm</p>
+										<a href="tel:+447555340022" className="text-primary hover:underline text-sm min-[340px]:text-base">
 											+44 7555 340 022
 										</a>
 									</div>
