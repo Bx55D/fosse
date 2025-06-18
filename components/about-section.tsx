@@ -44,7 +44,7 @@ export function AboutSection() {
 						</div>
 
 						<h2 className="text-3xl md:text-4xl font-bold">
-							Inspired by the <span className="text-primary fosse-path">History</span>, Driven by Innovation
+							Inspired by <span className="text-primary fosse-path">History</span>, Driven by Innovation
 						</h2>
 
 						<p className="text-muted-foreground">
