@@ -11,7 +11,6 @@ import {
   NavigationMenuList,
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu"
-import { ModeToggle } from "@/components/mode-toggle"
 import { Menu } from "lucide-react"
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
 import { Logo } from "@/components/logo"
@@ -64,13 +63,11 @@ export function Navbar() {
           </NavigationMenu>
 
           <div className="flex items-center gap-2">
-            <ModeToggle />
             <Button>Get a Quote</Button>
           </div>
         </div>
 
         <div className="md:hidden flex items-center gap-2">
-          <ModeToggle />
           <Sheet>
             <SheetTrigger asChild>
               <Button variant="ghost" size="icon">

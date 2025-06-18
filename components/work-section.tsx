@@ -65,7 +65,7 @@ export function WorkSection() {
             <span className="text-sm font-medium">Our Portfolio</span>
           </div>
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            Recent <span className="gradient-text">Projects</span> We're Proud Of
+            Recent <span className="text-primary">Projects</span> We're Proud Of
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
             Explore our latest work and see how we've helped businesses like yours achieve their digital goals.

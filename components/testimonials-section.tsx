@@ -53,7 +53,7 @@ export function TestimonialsSection() {
             <span className="text-sm font-medium">Testimonials</span>
           </div>
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            What Our <span className="gradient-text">Clients</span> Say
+            What Our <span className="text-primary">Clients</span> Say
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
             Don't just take our word for it. Here's what our clients have to say about working with Fosse Creative.
