@@ -5,7 +5,7 @@ import { motion } from "framer-motion"
 import { ArrowRight, MapPin, Route, Signpost, Navigation, Map } from "lucide-react"
 import { useState, useEffect, useRef } from "react"
 
-const AnimatedDashedHeart = () => {
+const AnimatedSolidHeart = () => {
 	const [pathLength, setPathLength] = useState(0);
 	const pathRef = useRef(null);
 
@@ -19,21 +19,29 @@ const AnimatedDashedHeart = () => {
 
 	return (
 		<svg width="800" height="600" viewBox="0 0 800 600" className="w-full h-full">
-			<motion.path
+			{pathLength > 0 && (
+				<motion.path
+					ref={pathRef}
+					d="M400,150 C400,100 350,50 280,50 C210,50 160,100 160,170 C160,240 280,360 400,480 C520,360 640,240 640,170 C640,100 590,50 520,50 C450,50 400,100 400,150z"
+					fill="none"
+					stroke="hsl(var(--primary))"
+					strokeWidth="8"
+					strokeLinecap="round"
+					strokeOpacity="0.7"
+					strokeDasharray={pathLength}
+					// Initial state: the dash offset is the full path length
+					initial={{ strokeDashoffset: pathLength }}
+					// Animate the dash offset to 0 to "draw" the path
+					animate={{ strokeDashoffset: 0 }}
+					transition={{ duration: 3, delay: 0.5, ease: "easeInOut" }}
+				/>
+			)}
+			<path
 				ref={pathRef}
 				d="M400,150 C400,100 350,50 280,50 C210,50 160,100 160,170 C160,240 280,360 400,480 C520,360 640,240 640,170 C640,100 590,50 520,50 C450,50 400,100 400,150z"
 				fill="none"
-				stroke="hsl(var(--primary))"
+				stroke="transparent"
 				strokeWidth="8"
-				strokeLinecap="round"
-				strokeOpacity="0.7"
-				// Set the dash pattern you want
-				strokeDasharray="15 10"
-				// Initial state: the dash offset is the full path length
-				initial={{ strokeDashoffset: pathLength }}
-				// Animate the dash offset to 0 to "draw" the path
-				animate={{ strokeDashoffset: 0 }}
-				transition={{ duration: 3, delay: 0.5, ease: "easeInOut" }}
 			/>
 		</svg>
 	);
@@ -287,7 +295,7 @@ export function HeroSection() {
 					>
 						{/* Heart-shaped trail with centered compass */}
 						<div className="relative">
-							<AnimatedDashedHeart />
+							<AnimatedSolidHeart />
 							{/* Central compass - positioned at the geometric center of the heart */}
 							<div className="absolute z-10" style={{ left: '50%', top: '44%', transform: 'translate(-50%, -50%)' }}>
 								<div className="relative w-32 h-32 bg-primary rounded-full flex items-center justify-center shadow-xl border-4 border-primary-foreground/20">
