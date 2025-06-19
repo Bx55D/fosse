@@ -282,7 +282,7 @@ export function HeroSection() {
 						</h1>
 
 						<p className="text-lg text-muted-foreground max-w-lg">
-							We build a comprehensive online presence for your business; getting you more customers, while giving you more time to do your thing.
+							We build a comprehensive online presence for businesses in Melksham and across Wiltshire; getting you more customers, while giving you more time to do your thing.
 						</p>
 
 					</motion.div>

@@ -23,7 +23,7 @@ export function AboutSection() {
 							<div className="relative h-full w-full rounded-2xl overflow-hidden border-8 border-background shadow-xl">
 								<Image
 									src="/cc.webp?height=800&width=800"
-									alt="Fosse Creative Team"
+									alt="Fosse Creative web design team in Melksham, Wiltshire - professional web developers"
 									fill
 									className="object-cover"
 								/>
@@ -49,12 +49,14 @@ export function AboutSection() {
 
 						<p className="text-muted-foreground">
 							<strong>Fosse Creative</strong> takes its name from the historic Fosse Way, one of Britain's most important Roman roads
-							that connected Exeter to Lincoln. Just as this ancient route provided a direct path through the heart of
-							Britain, we create direct pathways to digital success for our clients.
+							that connected Exeter to Lincoln and runs right through our home county of Wiltshire. Just as this ancient 
+							route provided a direct path through the heart of Britain, we create direct pathways to digital success 
+							for businesses in Melksham and beyond.
 						</p>
 
 						<p className="text-muted-foreground">
-							We create digital experiences that stand the test of time, just like the road that inspired our name.
+							Based in Melksham, we serve local businesses across Wiltshire and the South West, creating digital 
+							experiences that stand the test of time, just like the road that inspired our name.
 						</p>
 
 						<div className="grid grid-cols-1 min-[340px]:grid-cols-2 gap-6 mt-4">

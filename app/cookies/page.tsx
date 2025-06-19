@@ -1,6 +1,16 @@
 import Link from "next/link"
 import { ArrowLeft } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import { Metadata } from "next"
+
+export const metadata: Metadata = {
+  title: "Cookie Policy | Fosse Creative - Web Design Melksham",
+  description: "Cookie policy for Fosse Creative website. Learn about cookies we use for web design services in Melksham, Wiltshire and how to manage them.",
+  robots: {
+    index: true,
+    follow: true,
+  },
+}
 
 export default function CookiesPolicyPage() {
 	return (

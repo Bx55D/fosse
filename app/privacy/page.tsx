@@ -1,6 +1,16 @@
 import Link from "next/link"
 import { ArrowLeft } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import { Metadata } from "next"
+
+export const metadata: Metadata = {
+  title: "Privacy Policy | Fosse Creative - Web Design Melksham",
+  description: "Privacy policy for Fosse Creative web design services in Melksham, Wiltshire. Learn how we protect your personal data and privacy.",
+  robots: {
+    index: true,
+    follow: true,
+  },
+}
 
 export default function PrivacyPolicyPage() {
 	return (

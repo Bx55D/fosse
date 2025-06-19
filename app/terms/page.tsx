@@ -1,6 +1,16 @@
 import Link from "next/link"
 import { ArrowLeft } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import { Metadata } from "next"
+
+export const metadata: Metadata = {
+  title: "Terms of Service | Fosse Creative - Web Design Melksham",
+  description: "Terms of service for Fosse Creative web design and development services in Melksham, Wiltshire. Professional web design terms and conditions.",
+  robots: {
+    index: true,
+    follow: true,
+  },
+}
 
 export default function TermsOfServicePage() {
 	return (
